@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Bloody Bitch</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="/styles/style.css">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <header class="bloodybitch">
+            <h1 class="bloody">Bloody</h1>
+            <h1 class="bitch">Bitch</h2>
+        </header>
+        
+        <section class="dialogue" id="dialogue">
+            <p id="dialoguetext">
+                Sardar maine aapka namak khaya hai  </br>  Ab goli kha
+            </p>
+        </section>
+        
+        <button onclick="changeDialogue()"></button>
+
+        <footer class="footersocial">
+            <a href="https://github.com/p4suhag" target="_blank"><img src="/pics/github.png"></a>
+            <a href="https://www.facebook.com/psuhag1" target="_blank"><img src="/pics/fb.png"></a>
+            <a href="https://twitter.com/p4suhag" target="_blank"><img src="/pics/twtr.png"></a>
+            <a href="https://www.linkedin.com/in/p4suhag" target="_blank"><img src="/pics/linkedin.png"></a>
+        </footer>
+
+
+
+
+
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        
+        
+
+        <script>
+        
+        var storeroom = [];
+        $.getJSON('/scripts/store.json', function(data){
+            storeroom = data.bbstore;
+        })
+
+        console.log(storeroom);
+
+        function changeDialogue(){
+            
+            var noOfDialogue = storeroom.length;
+            var randomNumber = Math.floor(Math.random() * noOfDialogue);
+            var text = storeroom[randomNumber].name;
+            document.getElementById('dialoguetext').innerHTML = text;
+            
+        }
+        
+            //var noOfDialogue = bbstore.length;
+
+            /*function changeDialogue(){
+                var randomNumber = Math.floor(Math.random() * noOfDialogue);
+                var text = bbstore[randomNumber].name;
+                document.getElementById('dialogue').innerHTML = text;
+            }*/
+
+
+        </script>
+
+        
+    </body>
+</html>
