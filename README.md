@@ -1,8 +1,7 @@
-# BloodyBitch
-
-Atom Bomb for Bollywood Dialogues
+# Volcanic
 
 
-#####Visit [Bloody Bitch](http://p4suhag.github.io/BloodyBitch/)
 
-<img src="https://github.com/p4suhag/BloodyBitch/blob/master/pics/output.gif">
+#####Visit [Volcanic](http://p4suhag.github.io/volcanic/)
+
+<img src="https://github.com/p4suhag/volcanic/blob/master/pics/output.gif">

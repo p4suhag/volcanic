@@ -6,10 +6,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Bloody Bitch</title>
+        <title>Volcanic</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="/styles/style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500&display=swap" rel="stylesheet">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     </head>
     <body>
@@ -18,62 +20,41 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <header class="bloodybitch">
-            <h1 class="bloody">Bloody</h1>
-            <h1 class="bitch">Bitch</h2>
+        <header class="volcanic">
+            <img src="pics/volcano.svg">
         </header>
         
-        <section class="dialogue" id="dialogue">
-            <p id="dialoguetext">
-                Sardar maine aapka namak khaya hai  </br>  Ab goli kha
-            </p>
-        </section>
+        <div class="dialogue" id="dialogue">
+            <p id="participant-name"></p>
+            <p id="dialoguetext">Welcome to madness</p>
+            <p class="button" onclick="changeDialogue()">Rock N Roll</p>
+        </div>
         
-        <button onclick="changeDialogue()"></button>
-
-        <footer class="footersocial">
-            <a href="https://github.com/p4suhag" target="_blank"><img src="/pics/github.png"></a>
-            <a href="https://www.facebook.com/psuhag1" target="_blank"><img src="/pics/fb.png"></a>
-            <a href="https://twitter.com/p4suhag" target="_blank"><img src="/pics/twtr.png"></a>
-            <a href="https://www.linkedin.com/in/p4suhag" target="_blank"><img src="/pics/linkedin.png"></a>
-        </footer>
-
-
-
-
+        
 
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         
         
-
         <script>
-        
-        var storeroom = [];
-        $.getJSON('/scripts/store.json', function(data){
-            storeroom = data.bbstore;
-        })
+            var storeroom = [];
+            var participants = [];
+            var participant_number = 0;
+            $.getJSON('/scripts/store.json', function(data){
+                storeroom = data.bbstore;
+                participants = data.participants;
+            })
 
-        console.log(storeroom);
-
-        function changeDialogue(){
             
-            var noOfDialogue = storeroom.length;
-            var randomNumber = Math.floor(Math.random() * noOfDialogue);
-            var text = storeroom[randomNumber].name;
-            document.getElementById('dialoguetext').innerHTML = text;
-            
-        }
-        
-            //var noOfDialogue = bbstore.length;
-
-            /*function changeDialogue(){
+            function changeDialogue(){
+                var noOfDialogue = storeroom.length;
                 var randomNumber = Math.floor(Math.random() * noOfDialogue);
-                var text = bbstore[randomNumber].name;
-                document.getElementById('dialogue').innerHTML = text;
-            }*/
-
-
+                var text = storeroom[randomNumber].name;
+                document.getElementById('dialoguetext').innerHTML = text;
+                // var participant_number = 0;
+                document.getElementById('participant-name').innerHTML = participants[participant_number];
+                participant_number++;
+            }
         </script>
 
         
