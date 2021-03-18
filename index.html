@@ -36,26 +36,41 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         
         <script>
-            var storeroom = [];
+            var tasks = [];
             var participants = [];
+            var duplicate_copy = [];
             var participant_number = 0;
             $.getJSON('scripts/store.json', function(data){
-                storeroom = data.bbstore;
+                tasks = data.tasks;
                 participants = data.participants;
+                duplicate_copy = data.participants;
             })
 
             
             function changeDialogue(){
-                var noOfDialogue = storeroom.length;
-                var randomNumber = Math.floor(Math.random() * noOfDialogue);
-                var text = storeroom[randomNumber].name;
-                document.getElementById('dialoguetext').innerHTML = text;
-                // var participant_number = 0;
-                document.getElementById('participant-name').innerHTML = participants[participant_number];
-                participant_number++;
-            }
-        </script>
+                var noOfDialogue = tasks.length;
+                var randomNumber_task = Math.floor(Math.random() * noOfDialogue);
+                var randomNumber_participant = Math.floor(Math.random() * participants.length);
 
-        
+               document.getElementById('participant-name').innerHTML = participants[randomNumber_participant];
+                
+                if (participants.length == 1) {
+                    participants = duplicate_copy;
+                    console.log('now');
+                    $.getJSON('scripts/store.json', function(data){
+                        tasks = data.tasks;
+                        participants = data.participants;
+                    })
+                } else {
+                    participants.splice(randomNumber_participant, 1);
+                }
+                
+                
+                document.getElementById('dialoguetext').innerHTML = tasks[randomNumber_task];
+            }
+
+        </script>        
     </body>
 </html>
+
+
