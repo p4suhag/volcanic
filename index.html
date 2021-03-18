@@ -40,7 +40,7 @@
             var storeroom = [];
             var participants = [];
             var participant_number = 0;
-            $.getJSON('/scripts/store.json', function(data){
+            $.getJSON('scripts/store.json', function(data){
                 storeroom = data.bbstore;
                 participants = data.participants;
             })
